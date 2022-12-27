@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'serials/base.html' %}
+{% load static %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сериалы</title>
+    <link rel="stylesheet" href="{% static 'css/actor.css' %}">
+</head>
+
+<div class="container">
+        <div class="item">
+            <div class="image">
+                <img src="{{ serial.image.url }}" class="img-fluid" alt="">
+            </div>
+            <div class="items">
+                <ul>
+                    <b>Актер:</b> {{ serial.FIO }}
+                    <p></p>
+                    <b>Возраст:</b> {{ serial.age }} лет
+                </ul>
+            </div>
+        </div>
+        <div class="info">
+            <h3 class="shop-sing editContent">
+                О {{ serial.FIO }}
+            </h3>
+            <p class="ds">
+                <a> {{ serial.description|safe }}</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+

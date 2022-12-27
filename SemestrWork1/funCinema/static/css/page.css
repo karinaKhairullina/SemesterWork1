@@ -1,0 +1,54 @@
+.posters .img-fluid{
+    float: right;
+    margin: 20px 100px 20px 10px;
+    width: 30%;
+    height: 50%;
+}
+.titles h1{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 150px;
+}
+.titles .items {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    display: inline-block;
+    margin-top: 150px;
+}
+
+.info h3{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    display: inline-block;
+    margin-top: 100px;
+}
+.info .ds{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: left;
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+    width: 50%;
+}
+.info .link{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: left;
+    display: inline-block;
+    margin: 5px 5px 5px 5px;
+    width: 50%;
+}
+

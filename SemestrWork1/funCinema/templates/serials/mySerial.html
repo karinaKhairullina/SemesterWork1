@@ -1,0 +1,48 @@
+{% extends 'serials/base_form.html' %}
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+</head>
+<a href="{% url 'serials_list' %}">На главную страницу</a>
+<body>
+<table class = 'table'>
+    <thead class = 'border-bottom'>
+        <tr>
+            <td>Название</td>
+            <td>Ссылка</td>
+            <td>
+                <a href="{% url 'insert' %}" class="btn">
+                    <i class="fas fa-plus"></i> Добавить
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for serials in list %}
+            <tr>
+                <td>{{ serials.title }}</td>
+                <td>{{ serials.link }}</td>
+                <td>
+                    <a href="{% url 'update' serials.id %}" class="btn">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'delete' serials.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
+{% endblock  %}
+

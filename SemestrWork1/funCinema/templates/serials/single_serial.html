@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'serials/base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сериалы</title>
+    <link rel="stylesheet" href="{% static 'css/serial_det.css' %}">
+</head>
+<body>
+
+<div class="container" style="grid-template-columns: repeat(auto-fill,300px);margin: 150px 400px 20px 10px;">
+            {%for serial in serials %}
+                    <div class="item">
+                    {% if serial.poster %}
+                        <img src="{{ serial.poster.url }}" class="img-fluid"
+                        alt="">
+                    {% endif %}
+                     {% if serial.title %}
+                            <p>
+                                <a href="{% url 'detail_serial' serial.id %}">{{ serial.title }}</a>
+                            </p>
+                    {% endif %}
+                    </div>
+            {% endfor %}
+{% endblock %}
+</div>
+</body>
+</html>

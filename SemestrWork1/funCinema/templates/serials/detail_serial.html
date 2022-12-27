@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'serials/base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/page.css' %}">
+    <script src={% static "js/script.js" %}></script>
+</head>
+<body>
+        <div class="container">
+                    <div class="item">
+                        <div class="posters">
+                            <img src="{{ serial.poster.url }}" class="img-fluid" alt="">
+                        </div>
+                        <div class="titles">
+                            <h1>
+                                {{ serial.title }}
+                            </h1>
+                        <div class = "items">
+                            <ul>
+                                <li>
+                                    <span><b>Дата:</b> {{ serial.date }}</span></li>
+                                <li>
+                                    <span><b>Страна:</b> {{ serial.country }}</span></li>
+
+                                <li ><span><b>Актеры: </b>
+                                    {% for actor in serial.actors.all %}
+                                        <p>
+                                            <a href="{% url 'actor_detail' actor.id %}">{{ actor }}</a>
+                                        </p>
+                                    {% endfor %}
+                                </span>
+                                </li>
+                                <li ><span><b>Жанр: </b>
+                                    {% for genre in serial.genre.all %}
+                                        {{ genre }}
+                                    {% endfor %}
+                                </span>
+                                </li>
+                                <li >
+                                <span><b>Рейтинг: </b>{{ serial }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="info">
+            <h3 class="editContent"> О сериале {{ serial.title }}</h3>
+            <p class="ds" >{{ serial.description }}</p>
+            <p class="link"> <a target="_blank" href="{{ serial.link }}">
+                Ссылка на сериал</a>
+            </p>
+                 {% for image in serial.cadrs_set.all %}
+                     <img src="{{ image.image.url }}"  alt=""  width="350px" height="250px">
+                {% endfor %}
+        </div>
+</body>
+</html>
+{% endblock %}
+
